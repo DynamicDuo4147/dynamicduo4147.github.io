@@ -1,5 +1,5 @@
 ---
-title: About me
+About me
 ---
 
 Hi my name is Mateo Gutierrez!

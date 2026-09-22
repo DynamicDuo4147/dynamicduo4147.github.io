@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Atlanta, Ga, RPI B.S. & M.S. Graduate
+subtitle: <a href='#'>Affiliations</a>. RPI Alumni with my B.S. & M.S. in Mechanical and Aeronautical Engineering
 
 profile:
   align: right

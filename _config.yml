@@ -198,6 +198,9 @@ newsletter:
 # -----------------------------------------------------------------------------
 
 collections:
+  openfoam:
+    output: true
+    permalink: /openfoam/:path/
   books:
     output: true
   news:

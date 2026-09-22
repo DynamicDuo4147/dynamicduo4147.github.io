@@ -1,6 +1,6 @@
 ---
 layout: page
-title: project 1
+title: Kelvin Helmholtz Instability 
 description: with background image
 img: assets/img/12.jpg
 importance: 1
@@ -8,11 +8,7 @@ category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+The Kelvin-Helmholtz instability (KHI) is a shear-driven hydrodynamic instability observed across a wide range of flow regimes, from astrophysical phenomena to oceanic currents. In high-speed flows, KHI plays a critical role in shock--wave/boundary--layer interactions, mixing layers, jet dynamics, laminar--to--turbulent transition, and combustion processes such as those occurring in scramjet engines. In the hypersonic regime, thermal-nonequilibrium effects must be taken into account to accurately model the flow. To this end, a new, less dissipative density-based hypersonic solver, HAVAFoam, is developed to benchmark thermal-nonequilibrium effects on KHI. In particular, high-fidelity approximate Riemann solvers with the numerical schemes of HLL, HLLC, and AUSM+ are implemented in HAVAFoam. Thorough validation and verification studies were performed to ensure that findings are independent of any numerical parameters. Direct numerical simulations were carried out, and the analysis reveals that AUSM+ exhibited the least numerical dissipation when compared with Kraichnan-Batchelor-Leith (KBL) theory, showing very good agreement with inviscid solutions reported in the literature.
 
     ---
     layout: page

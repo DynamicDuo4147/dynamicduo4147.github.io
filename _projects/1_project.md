@@ -2,7 +2,7 @@
 layout: page
 title: Kelvin Helmholtz Instability 
 description: with background image
-img: assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_3s
+img: assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_3s.jpg
 importance: 1
 category: work
 related_publications: true

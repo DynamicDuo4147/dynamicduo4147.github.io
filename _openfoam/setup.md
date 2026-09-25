@@ -7,7 +7,7 @@ toc:
   sidebar: left
 ---
 
-This guide covers building **OpenFOAM v2406** (openfoam.com release) from source on
+This guide covers building **OpenFOAM v2406** (ESI release) from source on
 **Ubuntu 24.04**. Building from source, rather than installing a precompiled package,
 is what you want if you plan to compile additional solvers such as hy2Foam.
 
@@ -19,10 +19,6 @@ is what you want if you plan to compile additional solvers such as hy2Foam.
 Dependencies differ between OpenFOAM versions and between the solvers you build on top
 of it. **Cross-reference the requirements of the specific solver you plan to compile**
 before installing anything.
-
-A good reference is the `Requirements.md` file shipped with the OpenFOAM source
-([mirror on Fossies](https://fossies.org/linux/OpenFOAM/doc/Requirements.md)). Once you
-download the source, the same file is at `doc/Requirements.md`.
 
 > The list below is what worked for me on this exact version and OS. Other
 > combinations may need different package versions.
@@ -123,6 +119,7 @@ Check that the environment and the main executables are in place:
 
 ```bash
 foamInstallationTest
+NOTE: This does not work on HPC clusters. 
 ```
 
 Then run the classic lid-driven cavity case as a smoke test:

@@ -6,7 +6,7 @@ subtitle: <a href='#'>Affiliations</a>. RPI Alumni with my B.S. & M.S. in Mechan
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: KennedyRocketShip.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Atlanta, Ga</p>

@@ -51,20 +51,13 @@ cv:
         summary: Coordinated with Project Managers, Architects, and other engineering disciplines to accomplish over twenty-five projects valued over $25,000 in a timely and efficient manner. Managed a project portfolio that included structural design and analysis for a variety of residential and commercial projects of various building materials. Utilized AutoCAD to draft structural residential and commercial structural plans and details.
 
     Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
-
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - title: Eagle Scout
+        date: 2019-12-12
+        awarder: Boy Scouts of America
+        
+      - title: RPI Leadership Scholarships
+        date: 2020-2025
+        awarder: Rensselaer Polytechnic Institute
 
     Publications:
       - title: Viscous and Nonequilibrium Effects on Kelvin-Helmholtz Instabilities
@@ -75,9 +68,23 @@ cv:
       
     Skills:
       - name: OpenFOAM
-        level: Master
         icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: OpenFOAM Development (C++)
+        icon: fa-solid fa-hashtag
+      - name: Python
+        icon: fa-solid fa-hashtag
+      - name: Paraview
+        icon: fa-solid fa-hashtag
+      - name: SolidWorks
+        icon: fa-solid fa-hashtag
+      - name: GMSH
+        icon: fa-solid fa-hashtag
+      - name: Windows OS
+        icon: fa-solid fa-hashtag
+      - name: Linux OS
+        icon: fa-solid fa-hashtag
+      - name: OpenFOAM Development (C++)
+        icon: fa-solid fa-hashtag
 
     Languages:
       - name: English

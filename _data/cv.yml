@@ -8,9 +8,9 @@ cv:
 
   social_networks:
     - network: GitHub
-      username: example
+      username: matCFD
     - network: LinkedIn
-      username: example
+      username: https://www.linkedin.com/in/mateo-gutierrez-rpi/
 
   sections:
     Education:
@@ -27,6 +27,9 @@ cv:
         studyType: Master of Science
         start_date: 2025
         end_date: 2026
+        highlights:
+          - "GPA: 3.52"
+          - "Thesis research: hypersonic CFD, Riemann solvers in Hy2Foam"
 
     Experience:
       - company: HAVA Lab

@@ -23,19 +23,12 @@ Early versions of both foundations and ESI remained similar, but recently the tw
 
 ## Step 1: Understanding case structure
 
-CFD cases within OpenFoam are broken down into three primary directories: 0, constant, and system. Each directory is critical to the successful case run and omissions in any of the directories or its subdirectories will results in run failures. Initially, a brief overview is given for each directory before a more in-depth overview is given in their respective sections. Additionally, it is to be noted while each case requires these three directories additional directories may be needed. The 0 directory contains the initial field data for the prescribed mesh. The 0 or time files contain the mesh field data at that specific iteration or timestep. Furthermore, these directories allow for the post-processing and visualization in softwares like Paraview. The constant
-
-
-
-
-
-Copy and paste the whole block into a terminal:
-
-```bash
-
-```
+CFD cases within OpenFoam are broken down into three primary directories: 0, constant, and system. Each directory is critical to the successful case run and omissions in any of the directories or its subdirectories will results in run failures. Initially, a brief overview is given for each directory before a more in-depth overview is given in their respective sections. Additionally, it is to be noted while each case requires these three directories additional directories may be needed. The 0 directory contains the initial field data for the prescribed mesh. The 0 or time files contain the mesh field data at that specific iteration or timestep. Furthermore, these directories allow for the post-processing and visualization. The constant directory prescribes the modelling behavior. This directory prescribes the models used for convection, diffusion, and thermophysical properties. Lastly, the system directory pertains to OpenFOAM's numerical behavior. The system directory will detail the order and type of spatial and temporal schemes used. Please note that while each directory is found within each solver's case not all 0, constant, and system directories are created equal. Difference may arise pending what solver is used.  
 
 ## Step 2: Inside the 0 directory
+
+
+
 
 
 ## Step 3: Inside the constant directory

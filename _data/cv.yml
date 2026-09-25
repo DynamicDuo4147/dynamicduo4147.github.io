@@ -86,8 +86,6 @@ cv:
         icon: fa-solid fa-hashtag
       - name: Linux OS
         icon: fa-solid fa-hashtag
-      - name: OpenFOAM Development (C++)
-        icon: fa-solid fa-hashtag
 
     Languages:
       - name: English

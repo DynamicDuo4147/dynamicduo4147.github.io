@@ -44,7 +44,7 @@ For example, velocity (m/s) is [0 1 -1 0 0 0 0].
 > **You cannot just interchange field files** 
 > If you accidentally delete a 0 directory file you cannot copy and rename another 0 directory file without changing the dimensions array.
 > Also, make sure your class variable matches the field (i.e. velocity has the class volVectorField). 
-{: .block-tip }
+{: .block-warning }
 
 
 ## Step 3: Inside the constant directory

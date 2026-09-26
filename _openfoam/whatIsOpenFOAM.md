@@ -55,6 +55,78 @@ internalField and boundaryField allow for the user to assign values to the simul
 
 ## Step 3: Inside the constant directory
 
+While the 0 directory handles the fluid condition the constant directory specifies how the fluid is modelled. The constant directory has two primary files: turbulenceProperties and thermophysicalProperties. turbulenceProperties specify the turbulence model such as RANS, kOmegaSST, etc. used during the run. Foundations OpenFOAM is packaged with the following turbulence models:
+
+| Turbulence Model | Purpose |
+|---|---|
+| `laminar` | no turbulence model |
+| `RAS` | Reynolds-averaged stress modelling |
+| `LES` | large-eddy simulation |
+
+| Turbulence Model | Purpose |
+|---|---|
+| `LRR` | Launder, Reece and Rodi Reynolds-stress model |
+| `LamBremhorstKE` | Lam and Bremhorst low-Re k-ε model |
+| `LaunderSharmaKE` | Launder and Sharma low-Re k-ε model |
+| `LienCubicKE` | Lien cubic non-linear low-Re k-ε model |
+| `LienLeschziner` | Lien and Leschziner low-Re k-ε model |
+| `RNGkEpsilon` | Renormalization group (RNG) k-ε model |
+| `SSG` | Speziale, Sarkar and Gatski Reynolds-stress model |
+| `ShihQuadraticKE` | Shih's quadratic algebraic Reynolds-stress k-ε model |
+| `SpalartAllmaras` | Spalart-Allmaras one-equation model for external flows |
+| `kEpsilon` | Standard k-ε model |
+| `kEpsilonLopesdaCosta` | k-ε variant with extra source terms for porous regions (atmospheric flow over forested terrain) |
+| `kOmega` | Standard high-Re k-ω model |
+| `kOmega2006` | Standard (2006) high-Re k-ω model |
+| `kOmegaSST` | k-ω SST model |
+| `kOmegaSSTLM` | Langtry-Menter 4-equation transitional SST model |
+| `kOmegaSSTSAS` | Scale-adaptive URANS model based on k-ω SST |
+| `kkLOmega` | Low-Re k-kl-ω model |
+| `qZeta` | Gibson and Dafa'Alla q-ζ two-equation low-Re model |
+| `realizableKE` | Realizable k-ε model |
+| `v2f` | Lien and Kalitzin v2-f model with Davidson et al. viscosity limit |
+
+### RAS models (compressible)
+
+| Turbulence Model | Purpose |
+|---|---|
+| `LRR` | Launder, Reece and Rodi Reynolds-stress model |
+| `LaunderSharmaKE` | Launder and Sharma low-Re k-ε model, including RDT-based compression term (also for combusting flows) |
+| `RNGkEpsilon` | Renormalization group (RNG) k-ε model |
+| `SSG` | Speziale, Sarkar and Gatski Reynolds-stress model |
+| `SpalartAllmaras` | Spalart-Allmaras one-equation model for external flows |
+| `buoyantKEpsilon` | Standard k-ε with added buoyancy generation/dissipation terms |
+| `kEpsilon` | Standard k-ε model, including RDT-based compression term |
+| `kOmega` | Standard high-Re k-ω model |
+| `kOmega2006` | Standard (2006) high-Re k-ω model |
+| `kOmegaSST` | k-ω SST model |
+| `kOmegaSSTLM` | Langtry-Menter 4-equation transitional SST model |
+| `kOmegaSSTSAS` | Scale-adaptive URANS model based on k-ω SST |
+| `realizableKE` | Realizable k-ε model |
+| `v2f` | Lien and Kalitzin v2-f model with Davidson et al. viscosity limit |
+
+### LES models (including hybrid DES)
+
+| Turbulence Model | Purpose |
+|---|---|
+| `DeardorffDiffStress` | Differential SGS stress equation model |
+| `Smagorinsky` | Smagorinsky SGS model |
+| `WALE` | Wall-adapting local eddy-viscosity SGS model |
+| `dynamicKEqn` | Dynamic one-equation eddy-viscosity model |
+| `dynamicLagrangian` | Dynamic SGS model with Lagrangian averaging |
+| `kEqn` | One-equation eddy-viscosity model |
+| `SpalartAllmarasDES` | Spalart-Allmaras DES (hybrid RANS-LES) |
+| `SpalartAllmarasDDES` | Spalart-Allmaras delayed DES |
+| `SpalartAllmarasIDDES` | Spalart-Allmaras improved delayed DES |
+| `kOmegaSSTDES` | k-ω SST DES |
+
+> **WARNING ** 
+> Your OpenFOAM distribution and version dictates which turbulence models you have available. The list provided was for OpenFOAM Foundations v12.
+> Additionally, each turbulence models may require specific field variables. 
+{: .block-warning }
+
+
+
 ## Step 4: Inside the system directory
 
 | Package(s) | Purpose |

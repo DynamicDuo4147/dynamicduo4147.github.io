@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "01 – Installing OpenFOAM v2406 on Ubuntu 24.04"
+title: "03 – Installing OpenFOAM v2406 on Ubuntu 24.04"
 description: Dependencies, environment setup, and compiling OpenFOAM from source
-order: 1
+order: 3
 toc:
   sidebar: left
 ---

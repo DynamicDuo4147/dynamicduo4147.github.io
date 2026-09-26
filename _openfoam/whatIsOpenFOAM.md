@@ -48,7 +48,7 @@ For example, velocity (m/s) is [0 1 -1 0 0 0 0].
 
 internalField and boundaryField allow for the user to assign values to the simulation. internalFields assigns all mesh points a blanket value while boundaryField will assign specific boundary patches within the mesh specific values. Boundary types and values will be covered in another section. 
 
-> **Further reading material on boundary conditions can be found here: ** 
+> **Further reading material on boundary conditions can be found here:** 
 > https://cfdmonkey.com/a-brief-explanation-of-boundary-conditions-in-openfoam/ 
 > https://www.openfoam.com/documentation/user-guide/4-mesh-generation-and-conversion/4.2-boundaries
 {: .block-tip }
@@ -120,12 +120,81 @@ While the 0 directory handles the fluid condition the constant directory specifi
 | `SpalartAllmarasIDDES` | Spalart-Allmaras improved delayed DES |
 | `kOmegaSSTDES` | k-ω SST DES |
 
-> **WARNING ** 
+> **WARNING** 
 > Your OpenFOAM distribution and version dictates which turbulence models you have available. The list provided was for OpenFOAM Foundations v12.
 > Additionally, each turbulence models may require specific field variables. 
 {: .block-warning }
 
+The thermophysicalModel dictates the relationship between enthalpy, pressure, and temperature. The thermophysicalModels are called out as shown below.  
 
+```
+thermoType
+{
+    type            hePsiThermo;
+    mixture         pureMixture;
+    transport       sutherland;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+```
+
+OpenFOAM does not assume anything you must become acquainted with the the models and equations deployed above to ensure accurate modelling. Below a table has been created for your viewing of the various models developed for OpenFOAM ESI. 
+
+### Equation of state: `equationOfState`
+
+| Model | Purpose |
+|---|---|
+| `icoPolynomial` | Incompressible polynomial equation of state, e.g. for liquids |
+| `perfectGas` | Perfect gas equation of state |
+
+### Basic thermophysical properties: `thermo`
+
+| Model | Purpose |
+|---|---|
+| `eConstThermo` | Constant specific heat $c_p$, with evaluation of internal energy $e$ and entropy $s$ |
+| `hConstThermo` | Constant specific heat $c_p$, with evaluation of enthalpy $h$ and entropy $s$ |
+| `hPolynomialThermo` | $c_p$ evaluated from polynomial coefficients, from which $h$ and $s$ are evaluated |
+| `janafThermo` | $c_p$ evaluated from JANAF thermodynamic table coefficients, from which $h$ and $s$ are evaluated |
+
+### Derived thermophysical properties: `specie`
+
+| Model | Purpose |
+|---|---|
+| `specieThermo` | Thermophysical properties of species, derived from $c_p$, $h$ and/or $s$ |
+
+### Transport properties: `transport`
+
+| Model | Purpose |
+|---|---|
+| `constTransport` | Constant transport properties |
+| `polynomialTransport` | Polynomial-based temperature-dependent transport properties |
+| `sutherlandTransport` | Sutherland's formula for temperature-dependent transport properties |
+
+### Mixture properties: `mixture`
+
+| Model | Purpose |
+|---|---|
+| `pureMixture` | General thermophysical model calculation for passive gas mixtures |
+| `homogeneousMixture` | Combustion mixture based on normalised fuel mass fraction $b$ |
+| `inhomogeneousMixture` | Combustion mixture based on $b$ and total fuel mass fraction $f_t$ |
+| `veryInhomogeneousMixture` | Combustion mixture based on $b$, $f_t$ and unburnt fuel mass fraction $f_u$ |
+| `dieselMixture` | Combustion mixture based on $f_t$ and $f_u$ |
+| `basicMultiComponentMixture` | Basic mixture based on multiple components |
+| `multiComponentMixture` | Derived mixture based on multiple components |
+| `reactingMixture` | Combustion mixture using thermodynamics and reaction schemes |
+| `egrMixture` | Exhaust gas recirculation mixture |
+
+### Thermophysical model: `type`
+
+| Model | Purpose |
+|---|---|
+| `hePsiThermo` | General calculation based on enthalpy $h$ or internal energy $e$, and compressibility $\psi$ |
+| `heRhoThermo` | General calculation based on $h$ or $e$, and density $\rho$ |
+| `hePsiMixtureThermo` | Enthalpy for a combustion mixture based on $h$ or $e$, and $\psi$ |
+| `heRhoMixtureThermo` | Enthalpy for a combustion mixture based on $h$ or $e$, and $\rho$ |
+| `heheuMixtureThermo` | $h$ or $e$ for the unburnt ($u$) gas and the combustion mixture |
 
 ## Step 4: Inside the system directory
 
@@ -149,13 +218,7 @@ While the 0 directory handles the fluid condition the constant directory specifi
 
 ## Step 2: Download the source
 
-```bash
-mkdir -p ~/openfoam && cd ~/openfoam
-wget https://dl.openfoam.com/source/v2406/OpenFOAM-v2406.tgz
-wget https://dl.openfoam.com/source/v2406/ThirdParty-v2406.tgz
-tar -xzf OpenFOAM-v2406.tgz
-tar -xzf ThirdParty-v2406.tgz
-```
+
 
 This gives you two folders side by side: `OpenFOAM-v2406` (the core code) and
 `ThirdParty-v2406` (external libraries OpenFOAM compiles alongside itself).

@@ -140,8 +140,7 @@ thermoType
 }
 ```
 
-OpenFOAM does not assume anything you must become acquainted with the the models and equations deployed above to ensure accurate modelling. Below a table has been created for your viewing of the various models developed for OpenFOAM ESI. 
-
+OpenFOAM does not assume anything you must become acquainted with the the models and equations deployed above to ensure accurate modelling. Below a table has been created from OpenFOAM ESI documentation. 
 ### Equation of state: `equationOfState`
 
 | Model | Purpose |
@@ -196,44 +195,9 @@ OpenFOAM does not assume anything you must become acquainted with the the models
 | `heRhoMixtureThermo` | Enthalpy for a combustion mixture based on $h$ or $e$, and $\rho$ |
 | `heheuMixtureThermo` | $h$ or $e$ for the unburnt ($u$) gas and the combustion mixture |
 
-## Step 4: Inside the system directory
-
-| Package(s) | Purpose |
-|---|---|
-| `build-essential` | GCC/G++ compilers and `make` |
-| `cmake` | Builds the third-party libraries |
-| `openmpi-bin`, `libopenmpi-dev` | MPI for running cases in parallel |
-| `flex`, `bison` | Lexer/parser generators OpenFOAM uses to read dictionaries |
-| `zlib1g-dev` | Compression library |
-| `qtbase5-dev`, `libxt-dev` | Qt and X11 libraries for GUI utilities |
-| `libscotch-dev`, `libparmetis-dev`, `libscotchmetis-dev` | Mesh decomposition for parallel runs |
-| `libboost-system-dev`, `libboost-filesystem-dev` | Boost libraries used by some utilities |
-| `libgmp-dev`, `libmpfr-dev` | High-precision arithmetic (optional) |
-| `python3`, `python3-dev`, `python3-numpy` | Python-based utilities and post-processing |
-
-> **Why the comments aren't inside the command:** in bash, a line-continuation
-> backslash must be the *very last character* on the line. Putting a `# comment`
-> after it silently ends the command early, so only part of the list gets installed.
+> **Error from thermophysical model** 
+> If you receive receive an error from a bad selection of the thermophysical table OpenFOAM will terminate and show you the list of accepted inputs. 
 {: .block-tip }
 
-## Step 2: Download the source
+## Step 4: Inside the system directory
 
-
-
-This gives you two folders side by side: `OpenFOAM-v2406` (the core code) and
-`ThirdParty-v2406` (external libraries OpenFOAM compiles alongside itself).
-
-## Step 3: Source the environment
-
-OpenFOAM relies on environment variables (`$WM_PROJECT_DIR`, `$FOAM_TUTORIALS`,
-`$FOAM_RUN`, and others) that are set by its `bashrc` file:
-
-```bash
-source ~/openfoam/OpenFOAM-v2406/etc/bashrc
-```
-
-To avoid typing this in every new terminal, add an alias to your `~/.bashrc`:
-
-```bash
-echo "alias of2406='source ~/openfoam/OpenFOAM-v2406/etc/bashrc'" >> ~/.bashrc
-```

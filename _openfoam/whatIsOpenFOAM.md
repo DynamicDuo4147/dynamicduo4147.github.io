@@ -46,6 +46,12 @@ For example, velocity (m/s) is [0 1 -1 0 0 0 0].
 > Also, make sure your class variable matches the field (i.e. velocity has the class volVectorField). 
 {: .block-warning }
 
+internalField and boundaryField allow for the user to assign values to the simulation. internalFields assigns all mesh points a blanket value while boundaryField will assign specific boundary patches within the mesh specific values. Boundary types and values will be covered in another section. 
+
+> **Further reading material on boundary conditions can be found here: ** 
+> https://cfdmonkey.com/a-brief-explanation-of-boundary-conditions-in-openfoam/ 
+> https://www.openfoam.com/documentation/user-guide/4-mesh-generation-and-conversion/4.2-boundaries
+{: .block-warning }
 
 ## Step 3: Inside the constant directory
 

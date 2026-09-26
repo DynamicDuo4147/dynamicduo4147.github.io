@@ -51,7 +51,7 @@ internalField and boundaryField allow for the user to assign values to the simul
 > **Further reading material on boundary conditions can be found here: ** 
 > https://cfdmonkey.com/a-brief-explanation-of-boundary-conditions-in-openfoam/ 
 > https://www.openfoam.com/documentation/user-guide/4-mesh-generation-and-conversion/4.2-boundaries
-{: .block-warning }
+{: .block-tip }
 
 ## Step 3: Inside the constant directory
 

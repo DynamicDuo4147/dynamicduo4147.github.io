@@ -7,7 +7,7 @@ toc:
   sidebar: left
 ---
 
-This guide focuses on explaining OpenFOAM's case directories. After compilation, a brief gander at the tutorial cases opens several directories each focusing on a specific portion of the simulation. 
+This guide focuses on explaining OpenFOAM's case directories. After compilation, a brief gander at the tutorial cases opens several directories each focusing on a specific portion of the simulation. Lastly, this is for OpenFOAM ESI not OpenFOAM Foundations.
 
 ## Before you start
 
@@ -23,21 +23,36 @@ Early versions of both foundations and ESI remained similar, but recently the tw
 
 ## Step 1: Overview of case structure
 
-CFD cases within OpenFoam are broken down into three primary directories: 0, constant, and system. Each directory is critical to the successful case run and omissions in any of the directories or its subdirectories will results in run failures. Initially, a brief overview is given for each directory before a more in-depth overview is given in their respective sections. Additionally, it is to be noted while each case requires these three directories additional directories may be needed. The 0 directory contains the initial field data for the prescribed mesh. The 0 or time files contain the mesh field data at that specific iteration or timestep. Furthermore, these directories allow for the post-processing and visualization. The constant directory prescribes the modelling behavior. This directory prescribes the models used for convection, diffusion, and thermophysical properties. Lastly, the system directory pertains to OpenFOAM's numerical behavior. The system directory will detail the order and type of spatial and temporal schemes used. Please note that while each directory is found within each solver's case not all 0, constant, and system directories are created equal. Difference may arise pending what solver is used.  
+CFD cases within OpenFoam are broken down into three primary directories: 0, constant, and system. Each directory is critical to the successful case run and omissions in any of the directories or its subdirectories will results in run failures. Initially, a brief overview is given for each directory before a more in-depth overview is given in their respective sections. Additionally, it is to be noted while each case requires these three directories additional directories may be needed. The 0 directory contains the initial field data for the prescribed mesh. The 0 or time files contain the mesh field data at that specific iteration or timestep. Furthermore, these directories allow for the post-processing and visualization. The constant directory prescribes the physical model and properties. Lastly, the system directory pertains to OpenFOAM's numerical behavior. The system directory will detail the order and type of spatial and temporal schemes used. Please note that while each directory is found within each solver's case not all 0, constant, and system directories are created equal. Difference may arise pending what solver is used.  
+
+```
+cavity/
+├── 0/                      initial & boundary conditions
+│   ├── p
+│   └── U
+├── constant/               physical properties & mesh
+│   ├── polyMesh/           (written by blockMesh)
+│   └── transportProperties
+└── system/                 numerics & run control
+    ├── blockMeshDict
+    ├── controlDict
+    ├── fvSchemes
+    └── fvSolution
+```
 
 ## Step 2: Inside the 0 directory
 
 Within the 0 directory houses the case's initial field data (i.e. pressure, velocity, etc.). The 0 directory hosts various field files with nomenclature following known abbreviations for the field (velocity field file is called U). Each field file is comprised of four main portions: FoamFile, dimensions, internalField, and boundaryField. FoamFile specifies the data version, field type (scalar v. vector), and field object. While learning OpenFOAM this header can be overlooked until later, but it is to be noted that when creating new field file that the class and object variables match field you are trying to create. The dimensions array within OpenFOAM assigns dimensions to the file. Each array index denotes not only the unit, but the power of that unit. Starting from the left to the right the indices are as follows below. 
 
-| Index No. | Property | SI Unit | USCS Unit |
-|---|---|---|---|
-| `1` | Mass | kilogram (kg) | pound-mass (lbm) |
-| `2` | Length | meter (m) | foot (ft) |
-| `3` | time | second (s) | second (s) |
-| `4` | time | Kelvin (K) | Rankine (R) |
-| `5` | quanity | mole (mol) | mole (mol) |
-| `6` | current | ampere (A) | ampere (A) |
-| `7` | Luminous intensity | candela (cd) | candela (cd) |
+| Index No. | Property | SI Unit |
+|---|---|---|
+| `1` | Mass | kilogram (kg) | 
+| `2` | Length | meter (m) | 
+| `3` | time | second (s) | 
+| `4` | temperature | Kelvin (K) | 
+| `5` | quanity | mole (mol) | 
+| `6` | current | ampere (A) | 
+| `7` | Luminous intensity | candela (cd) |
 
 For example, velocity (m/s) is [0 1 -1 0 0 0 0]. 
 
@@ -55,7 +70,7 @@ internalField and boundaryField allow for the user to assign values to the simul
 
 ## Step 3: Inside the constant directory
 
-While the 0 directory handles the fluid condition the constant directory specifies how the fluid is modelled. The constant directory has two primary files: turbulenceProperties and thermophysicalProperties. turbulenceProperties specify the turbulence model such as RANS, kOmegaSST, etc. used during the run. Foundations OpenFOAM is packaged with the following turbulence models:
+While the 0 directory handles the fluid condition the constant directory specifies how the fluid is modelled. The constant directory has three primary files: polyMesh, turbulenceProperties, and thermophysicalProperties. polyMesh is where the mesh is stored. turbulenceProperties specify the turbulence model such as RANS, etc. used during the run. Foundations OpenFOAM is packaged with the following turbulence models:
 
 | Turbulence Model | Purpose |
 |---|---|
@@ -127,7 +142,7 @@ While the 0 directory handles the fluid condition the constant directory specifi
 
 The thermophysicalModel dictates the relationship between enthalpy, pressure, and temperature. The thermophysicalModels are called out as shown below.  
 
-```
+```cpp
 thermoType
 {
     type            hePsiThermo;
@@ -209,11 +224,11 @@ The system directory specifies the numerical methods used within the simulation.
 | `fvSchemes` | fvSchemes handles the flux limiters to ensure convergence |
 | `fvSolution` | fvSolution handles how OpenFOAM solves the system of equations |
 | `blockMeshDict` | blockMeshDict details boundary patches and general mesh data|
-| `misc` | Additional simulation functions are usually found here |
+| `misc` | Additional simulation functions (i.e. decomposeParDict) are usually found here |
 
 While being introduced to OpenFOAM some of the nuances will be discussed layer primarily fvSolution and fvSchemes. However, controlDict file is almost the case conductor wherin it controls the timesteps, solver used, and output format. An example controlDict has been provided below. Comments or explanations are provided through cpp style comments, '//'.
 
-```
+```cpp
 FoamFile
 {
     version     2.0;
@@ -238,8 +253,7 @@ endTime         1000;
 // Change in time
 deltaT          1;
 // When OpenFOAM chooses to write the files
-writeControl    timeStep;
-// How many times before OpenFOAM writes the files
+writes every 10 timesteps
 writeInterval   10;
 // Limits the number of written timesteps
 purgeWrite      10;
@@ -251,9 +265,9 @@ writePrecision  6;
 writeCompression off;
 
 timeFormat      general;
-// runtime precision
+// number of digits in the time directory names
 timePrecision   6;
-// runTime is modified to allow for each interval to be exact
+// cases are re-read allowing changes to scheme or endTime midrun
 runTimeModifiable true;
 
 // Additional functions added for the simulation

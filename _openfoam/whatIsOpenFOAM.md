@@ -267,3 +267,7 @@ functions
 > **Further reading** 
 > If you would like further reading on the nuances of limiters, etc. https://holzmann-cfd.com/ is a great resource. 
 {: .block-tip }
+
+## Closing 
+This has served as a crash course into the OpenFOAM file system. More information than needed has been provided to you so you can use this as a reference later on. Don't be discouraged Rome wasn't built in a day!
+

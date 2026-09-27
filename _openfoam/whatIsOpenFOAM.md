@@ -201,3 +201,69 @@ OpenFOAM does not assume anything you must become acquainted with the the models
 
 ## Step 4: Inside the system directory
 
+The system directory specifies the numerical methods used within the simulation. A brief overview of the system's file is shown below. 
+
+| File | Purpose |
+|---|---|
+| `controlDict` | Handles general runtime guidelines such as writeIntervals and timesteps |
+| `fvSchemes` | fvSchemes handles the flux limiters to ensure convergence |
+| `fvSolution` | fvSolution handles how OpenFOAM solves the system of equations |
+| `blockMeshDict` | blockMeshDict details boundary patches and general mesh data|
+| `misc` | Additional simulation functions are usually found here |
+
+While being introduced to OpenFOAM some of the nuances will be discussed layer primarily fvSolution and fvSchemes. However, controlDict file is almost the case conductor wherin it controls the timesteps, solver used, and output format. An example controlDict has been provided below. Comments or explanations are provided through cpp style comments, '//'.
+
+```
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Defines the solver used
+application     simpleFoam;
+
+// Start time
+startFrom       startTime;
+
+startTime       0;
+// End time
+stopAt          endTime;
+
+endTime         1000;
+// Change in time
+deltaT          1;
+// When OpenFOAM chooses to write the files
+writeControl    timeStep;
+// How many times before OpenFOAM writes the files
+writeInterval   10;
+// Limits the number of written timesteps
+purgeWrite      10;
+// Output format
+writeFormat     ascii;
+// Written output precision
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+// runtime precision
+timePrecision   6;
+// runTime is modified to allow for each interval to be exact
+runTimeModifiable true;
+
+// Additional functions added for the simulation
+functions
+{
+    #include "readFields"
+    #include "streamLines"
+}
+```
+
+> **Further reading** 
+> If you would like further reading on the nuances of limiters, etc. https://holzmann-cfd.com/ is a great resource. 
+{: .block-tip }

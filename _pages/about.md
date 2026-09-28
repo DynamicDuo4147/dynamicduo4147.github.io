@@ -28,4 +28,4 @@ latest_posts:
 
 Hi!
 
-My name is Mateo Gutierrez. I am recent graduate of Rensselaer Polytechnic Institute pursuing Mechanical Engineering during my undergraduate tenure, and switching to Aeronautical Engineering for my Masters. During my graduate career, I specialized in numerical methods pertaining to rarefied flows. I investigated the Kelvin Helmholtz Instability in OpenFOAM through all flow regimes: subsonic, supersonic, and hypersonic. My work can be found under the "Projects" tab.  
+My name is Mateo Gutierrez. I am a recent graduate of Rensselaer Polytechnic Institute, where I studied Mechanical Engineering as an undergraduate before switching to Aeronautical Engineering for my master's. During my graduate career, I specialized in numerical methods for rarefied flows. I investigated the Kelvin–Helmholtz instability in OpenFOAM across multiple flow regimes: subsonic, supersonic, and hypersonic. My work can be found under the "Projects" tab.

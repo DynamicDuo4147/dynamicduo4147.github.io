@@ -19,7 +19,7 @@ from an ideal framework, inviscid and subsonic, to the hypersonic regime. To acc
 Thorough validation and verification studies were performed to ensure that findings are independent of any numerical parameters. Direct numerical simulations were carried out, and the analysis reveals that AUSM+ exhibited the least numerical dissipation when compared with Kraichnan-Batchelor-Leith (KBL) theory, showing very good agreement with inviscid solutions reported in the literature.
 
 ## Case Setup
-A structured rectangular domain ensuring consistency among flow domains. An open-source software, GMSH, was used for the mesh construction. The mesh consists of a three-dimensional box with dimensions $L=1$. A small extrusion is applied in the z-direction on the order of 0.01 to satisfy OpenFOAM's three-dimensional requirement. The box is divided into three layers, with the top and bottom layers assigned as low-density regions with a height of $L/4$. The middle region is the high-density region and is ascribed a height of $L/2$. The field conditions are changed based on the case environment, but the region designations remain consistent among all cases. 
+A structured rectangular domain ensuring consistency among flow domains. An open-source software, GMSH, was used for the mesh construction. The mesh consists of a three-dimensional box with dimensions $L=1$. A small extrusion is applied in the z-direction on the order of 0.01 to satisfy OpenFOAM's three-dimensional requirement. The box dimensions are taken from San et al. {% cite san2015riemann --file references %}. The box is divided into three layers, with the top and bottom layers assigned as low-density regions with a height of $L/4$. The middle region is the high-density region and is ascribed a height of $L/2$. The field conditions are changed based on the case environment, but the region designations remain consistent among all cases. 
 
 <div id="fig-gridResolution">
     <div class="row">
@@ -32,7 +32,7 @@ A structured rectangular domain ensuring consistency among flow domains. An open
     </div>
 </div>
 
-
+Cyclic boundary conditions were imposed in every cardinal direction allowing for the simulation of an infinite domain. The front and back faces were assigned 'empty' to reduce dimensionality to remain computationally viable.
 
 ## Convergence
 

@@ -36,6 +36,9 @@ Cyclic boundary conditions were imposed in every cardinal direction allowing for
 
 ## Convergence
 
+
+
+
 ## Numerical Validation
 
 ## Results

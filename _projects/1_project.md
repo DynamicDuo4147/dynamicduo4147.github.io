@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Kelvin Helmholtz Instability 
-description: Kelvin Helmholtz solved with HLLC
+description: Graduate Thesis 
 img: assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_3s.png
 importance: 1
 category: work
@@ -9,36 +9,29 @@ related_publications: false
 ---
 
 ## Introduction
-The Kelvin-Helmholtz instability (KHI) is a shear-driven hydrodynamic instability observed across a wide range of flow regimes, from astrophysical phenomena to oceanic currents. In high-speed flows, KHI plays a critical role in shock--wave/boundary--layer interactions, mixing layers, jet dynamics, laminar--to--turbulent transition, and combustion processes such as those occurring in scramjet engines. In the hypersonic regime, thermal-nonequilibrium effects must be taken into account to accurately model the flow. In particular, high-fidelity approximate Riemann solvers with the numerical schemes of HLL, HLLC, and AUSM+ are implemented in OpenFOAM. Thorough validation and verification studies were performed to ensure that findings are independent of any numerical parameters. Direct numerical simulations were carried out, and the analysis reveals that AUSM+ exhibited the least numerical dissipation when compared with Kraichnan-Batchelor-Leith (KBL) theory, showing very good agreement with inviscid solutions reported in the literature.
+The Kelvin-Helmholtz instability (KHI) is a shear-driven hydrodynamic instability observed across a wide range of flow regimes, from astrophysical phenomena to oceanic currents. In high-speed flows, KHI plays a critical role in shock--wave/boundary--layer interactions, mixing layers, jet dynamics, laminar--to--turbulent transition, and combustion processes. While the Kelvin Helmholtz Instability has been studied in the each regime none has studied the evolution of the Kelvin Helmholtz Instability as well as controlling for the numerical biases found within the numerical schemes. It was my hope that in undertaking this project to use OpenFOAM to evaluate the Kelvin Helmholtz Instability within an ideal framework to establish (i) OpenFOAM's and finite volume method (FVM) ability or inability to model the KHI (ii) the potential gains or losses of using approximate Riemann schemes. OpenFOAM's $rhoCentralFoam$ was modified replacing the default Kurganov and Tadmor central scheme with Harten, Lax, and van Leer (HLL and HLLC), and Advection Upstream Splitting Method (AUSM). 
+
+
+
+
+from an ideal framework, inviscid and subsonic, to the hypersonic regime. To accomplish such a lofty goal a framework was built upon from Omer San {% cite san2015riemann --file references %} within OpenFOAM using a modified $rhoCentralFoam$ adding numerical schemes: AUSM+, HLL, and HLLC. 
+
+Thorough validation and verification studies were performed to ensure that findings are independent of any numerical parameters. Direct numerical simulations were carried out, and the analysis reveals that AUSM+ exhibited the least numerical dissipation when compared with Kraichnan-Batchelor-Leith (KBL) theory, showing very good agreement with inviscid solutions reported in the literature.
 
 ## Case Setup
 A structured rectangular domain ensuring consistency among flow domains. An open-source software, GMSH, was used for the mesh construction. The mesh consists of a three-dimensional box with dimensions $L=1$. A small extrusion is applied in the z-direction on the order of 0.01 to satisfy OpenFOAM's three-dimensional requirement. The box is divided into three layers, with the top and bottom layers assigned as low-density regions with a height of $L/4$. The middle region is the high-density region and is ascribed a height of $L/2$. The field conditions are changed based on the case environment, but the region designations remain consistent among all cases. 
 
 <div id="fig-gridResolution">
     <div class="row">
-        <div class="col-sm mt-3 mt-md-0">
+        <div class="col-sm mt-4 mt-md-0">
             {% include figure.liquid loading="eager" path="assets/img/caseSetup.png" title="Mesh Setup" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
     <div class="caption">
-        <b>Figure 1:</b> Case Setup with prescribed field conditions.
+        <b>Figure 1:</b> Field conditions for the nondimensional case setup.
     </div>
 </div>
 
-
-
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/caseSetup.png" title="Mesh Setup" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/mesh.png" title="Generated Mesh" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: the case setup. Right: the generated mesh.
-</div>
 
 
 ## Convergence
@@ -83,3 +76,13 @@ Here's the code for the last row of images above:
 ```
 
 {% endraw %}
+
+## References
+@article{san2015riemann,
+  title   = {Evaluation of Riemann flux solvers for WENO reconstruction schemes: Kelvin--Helmholtz instability},
+  author  = {San, Omer and Kara, Kursat},
+  journal = {Computers \& Fluids},
+  volume  = {117},
+  pages   = {24--41},
+  year    = {2015}
+}

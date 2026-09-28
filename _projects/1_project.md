@@ -14,7 +14,7 @@ The Kelvin-Helmholtz instability (KHI) is a shear-driven hydrodynamic instabilit
 
 
 
-from an ideal framework, inviscid and subsonic, to the hypersonic regime. To accomplish such a lofty goal a framework was built upon from Omer San {% cite san2015riemann --file references %} within OpenFOAM using a modified $rhoCentralFoam$ adding numerical schemes: AUSM+, HLL, and HLLC. 
+from an ideal framework, inviscid and subsonic, to the hypersonic regime. To accomplish such a lofty goal a framework was built upon from Omer San within OpenFOAM using a modified $rhoCentralFoam$ adding numerical schemes: AUSM+, HLL, and HLLC. 
 
 Thorough validation and verification studies were performed to ensure that findings are independent of any numerical parameters. Direct numerical simulations were carried out, and the analysis reveals that AUSM+ exhibited the least numerical dissipation when compared with Kraichnan-Batchelor-Leith (KBL) theory, showing very good agreement with inviscid solutions reported in the literature.
 
@@ -37,6 +37,17 @@ Cyclic boundary conditions were imposed in every cardinal direction allowing for
 ## Convergence
 
 
+
+<div id="fig-convergence">
+    <div class="row">
+        <div class="col-sm mt-4 mt-md-0">
+            {% include figure.liquid loading="eager" path="assets/img/Kurganov_Grid_Convergence_1s(1).png" title="Mesh Setup" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+    <div class="caption">
+        <b>Figure 1:</b> Field conditions for the nondimensional case setup.
+    </div>
+</div>
 
 
 ## Numerical Validation

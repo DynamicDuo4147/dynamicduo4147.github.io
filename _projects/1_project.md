@@ -2,7 +2,7 @@
 layout: page
 title: Kelvin Helmholtz Instability 
 description: Kelvin Helmholtz solved with HLLC
-img: assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_3s.jpg
+img: assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_3s.png
 importance: 1
 category: work
 related_publications: true

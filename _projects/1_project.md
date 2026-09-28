@@ -5,20 +5,28 @@ description: Kelvin Helmholtz solved with HLLC
 img: assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_3s.png
 importance: 1
 category: work
-related_publications: true
+related_publications: false
 ---
 
 ## Introduction
-The Kelvin-Helmholtz instability (KHI) is a shear-driven hydrodynamic instability observed across a wide range of flow regimes, from astrophysical phenomena to oceanic currents. In high-speed flows, KHI plays a critical role in shock--wave/boundary--layer interactions, mixing layers, jet dynamics, laminar--to--turbulent transition, and combustion processes such as those occurring in scramjet engines. In the hypersonic regime, thermal-nonequilibrium effects must be taken into account to accurately model the flow. To this end, a new, less dissipative density-based hypersonic solver, HAVAFoam, is developed to benchmark thermal-nonequilibrium effects on KHI. In particular, high-fidelity approximate Riemann solvers with the numerical schemes of HLL, HLLC, and AUSM+ are implemented in HAVAFoam. Thorough validation and verification studies were performed to ensure that findings are independent of any numerical parameters. Direct numerical simulations were carried out, and the analysis reveals that AUSM+ exhibited the least numerical dissipation when compared with Kraichnan-Batchelor-Leith (KBL) theory, showing very good agreement with inviscid solutions reported in the literature.
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+The Kelvin-Helmholtz instability (KHI) is a shear-driven hydrodynamic instability observed across a wide range of flow regimes, from astrophysical phenomena to oceanic currents. In high-speed flows, KHI plays a critical role in shock--wave/boundary--layer interactions, mixing layers, jet dynamics, laminar--to--turbulent transition, and combustion processes such as those occurring in scramjet engines. In the hypersonic regime, thermal-nonequilibrium effects must be taken into account to accurately model the flow. In particular, high-fidelity approximate Riemann solvers with the numerical schemes of HLL, HLLC, and AUSM+ are implemented in OpenFOAM. Thorough validation and verification studies were performed to ensure that findings are independent of any numerical parameters. Direct numerical simulations were carried out, and the analysis reveals that AUSM+ exhibited the least numerical dissipation when compared with Kraichnan-Batchelor-Leith (KBL) theory, showing very good agreement with inviscid solutions reported in the literature.
 
 ## Case Setup
+A structured rectangular domain ensuring consistency among flow domains. An open-source software, GMSH, was used for the mesh construction. The mesh consists of a three-dimensional box with dimensions $L=1$. A small extrusion is applied in the z-direction on the order of 0.01 to satisfy OpenFOAM's three-dimensional requirement. The box is divided into three layers, with the top and bottom layers assigned as low-density regions with a height of $L/4$. The middle region is the high-density region and is ascribed a height of $L/2$. The field conditions are changed based on the case environment, but the region designations remain consistent among all cases. 
+
+<div id="fig-gridResolution">
+    <div class="row">
+        <div class="col-sm mt-3 mt-md-0">
+            {% include figure.liquid loading="eager" path="assets/img/caseSetup.png" title="Mesh Setup" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+    <div class="caption">
+        <b>Figure 1:</b> Case Setup with prescribed field conditions.
+    </div>
+</div>
+
+
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">

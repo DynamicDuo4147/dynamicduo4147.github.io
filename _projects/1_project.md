@@ -62,20 +62,20 @@ The previous investigation revealed that numerical dependence can have a signifi
 
 <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
   <div style="flex: 1 1 180px;">
-    {% include figure.liquid loading="eager" path="assets/img/image1.png" title="Image 1" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/4096x4096_Kurganov_Inviscid_Normalized_Density_1s.png" title="Image 1" class="img-fluid rounded z-depth-1" %}
   </div>
   <div style="flex: 1 1 180px;">
-    {% include figure.liquid loading="eager" path="assets/img/image2.png" title="Image 2" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/4096x4096_HLL_Inviscid_Normalized_Density_1s.png" title="Image 2" class="img-fluid rounded z-depth-1" %}
   </div>
   <div style="flex: 1 1 180px;">
-    {% include figure.liquid loading="eager" path="assets/img/image3.png" title="Image 3" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_1s.png" title="Image 3" class="img-fluid rounded z-depth-1" %}
   </div>
   <div style="flex: 1 1 180px;">
-    {% include figure.liquid loading="eager" path="assets/img/image4.png" title="Image 4" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/4096x4096_AUSM+_Inviscid_Normalized_Density_1s.png" title="Image 4" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 <div class="caption">
-  (a) ... (b) ... (c) ... (d) ...
+  (a) Kurganov-Tadmor (b) HLL (c) HLLC (d) AUSM+
 </div>
 
 <div class="caption" id="table-compCost">

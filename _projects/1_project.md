@@ -45,14 +45,28 @@ Cyclic boundary conditions were imposed in every cardinal direction allowing for
         </div>
     </div>
     <div class="caption">
-        <b>Figure 1:</b> Field conditions for the nondimensional case setup.
+        <b>Figure 2:</b> Mean X-Velocity over the Y-Axis.
     </div>
 </div>
 
 
 ## Numerical Validation
 
+
+
+
 ## Results
+
+<div class="caption" id="table-compCost">
+  <b>Table 1:</b> Comparison of the computational cost among the numerical schemes.
+</div>
+
+| **Numerical Scheme** | **Run Duration (hr)** | **CPU Hours** |
+|:---:|:---:|:---:|
+| Kurganov–Tadmor | 3.96 | 1518.85 |
+| HLL | 5.88 | 2258.21 |
+| HLLC | 6.15 | 2359.89 |
+| AUSM+ | 5.83 | 2237.48 |
 
 
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.

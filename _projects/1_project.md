@@ -8,6 +8,9 @@ category: work
 related_publications: false
 ---
 
+> Please note this page is currently under construction. 
+{: .block-tip }
+
 ## Introduction
 The Kelvin-Helmholtz instability (KHI) is a shear-driven hydrodynamic instability observed across a wide range of flow regimes, from astrophysical phenomena to oceanic currents. In high-speed flows, KHI plays a critical role in shock--wave/boundary--layer interactions, mixing layers, jet dynamics, laminar--to--turbulent transition, and combustion processes. While the Kelvin Helmholtz Instability has been studied in the each regime none has studied the evolution of the Kelvin Helmholtz Instability as well as controlling for the numerical biases found within the numerical schemes. It was my hope that in undertaking this project to use OpenFOAM to evaluate the Kelvin Helmholtz Instability within an ideal framework to establish (i) OpenFOAM's and finite volume method (FVM) ability or inability to model the KHI (ii) the potential gains or losses of using approximate Riemann schemes. OpenFOAM's $rhoCentralFoam$ was modified replacing the default Kurganov and Tadmor central scheme with Harten, Lax, and van Leer (HLL and HLLC), and Advection Upstream Splitting Method (AUSM). 
 

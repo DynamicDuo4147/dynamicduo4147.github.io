@@ -57,6 +57,17 @@ The previous investigation revealed that numerical dependence can have a signifi
 
 
 
+<div id="fig-gridResolution">
+    <div class="row">
+        <div class="col-sm mt-4 mt-md-0">
+            {% include figure.liquid loading="eager" path="assets/img/mcCally_modeAmplitude.png" title="McCally Numerical Validation" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+    <div class="caption">
+        <b>Figure 1:</b> Comparison with McCally's theoretical result. 
+    </div>
+</div>
+
 
 ## Results
 

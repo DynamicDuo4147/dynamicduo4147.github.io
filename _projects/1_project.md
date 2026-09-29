@@ -36,6 +36,9 @@ Cyclic boundary conditions were imposed in every cardinal direction allowing for
 
 ## Convergence
 
+As this numerical model was constructed from scratch, special attention was paid to the sensitivity to numerical parameters. In particular, different grid resolutions were tested due to the turbulent nature of the problem. Therefore, turbulence was not modeled but fully resolved by capturing all relevant scales of motion. To achieve this, the grid size was chosen to be comparable to the Kolmogorov scale, which will be discussed in subsequent chapters. 
+
+The previous investigation revealed that numerical dependence can have a significant impact on the evolution of the Kelvin--Helmholtz instability, necessitating a detailed investigation using the native Kurganov--Tadmor scheme. Meshes were constructed with nearly uniform node distributions in both the $$x$$ and $$y$$ directions, while varying the total node count to assess resolution effects. The previously described non-dimensional inviscid case was simulated at resolutions of $$1024\times1024$$, $$2048\times2048$$, $$4096\times4096$$, and $$6144\times6144$$. To characterize the impact of grid resolution on the flow field, the axial mean velocity, $$\bar{u}$$, was evaluated at each resolution for times $$t^* = 1.0$$ and $$t^* = 3.0$$. As shown in <a class="figref" href="#fig-gridResolution">Figure</a>, noticeable deviations persist for the $$1024\times1024$$ and $$2048\times2048$$ cases, whereas the $$4096\times4096$$ and $$6144\times6144$$ cases exhibit good agreement across all intervals. This demonstrates that $$\bar{u}$$ converges satisfactorily with increasing resolution, confirming that numerical independence is achieved at $$4096\times4096$$.
 
 
 <div id="fig-convergence">

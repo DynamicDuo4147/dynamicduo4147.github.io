@@ -68,7 +68,7 @@ The previous investigation revealed that numerical dependence can have a signifi
     {% include figure.liquid loading="eager" path="assets/img/4096x4096_HLL_Inviscid_Normalized_Density_1s.png" title="Image 2" class="img-fluid rounded z-depth-1" %}
   </div>
   <div style="flex: 1 1 180px;">
-    {% include figure.liquid loading="eager" path="assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_1s.png" title="Image 3" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/4096x4096_HLLC_Inviscid_Normalized_Density_3s.png" title="Image 3" class="img-fluid rounded z-depth-1" %}
   </div>
   <div style="flex: 1 1 180px;">
     {% include figure.liquid loading="eager" path="assets/img/4096x4096_AUSM+_Inviscid_Normalized_Density_1s.png" title="Image 4" class="img-fluid rounded z-depth-1" %}
